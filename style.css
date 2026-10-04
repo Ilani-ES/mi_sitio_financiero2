@@ -1,0 +1,75 @@
+:root{
+  --azul:#0b2e59; --azul-2:#14447f; --azul-claro:#e8f0fa;
+  --dorado:#c9a24a; --gris:#5b6573; --fondo:#f6f8fb; --blanco:#fff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:100%}
+body{font-family:"Segoe UI",Roboto,Arial,sans-serif;color:#1d2733;background:var(--blanco);line-height:1.6}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--azul-2)}
+.container{width:min(100% - 2rem,70rem);margin-inline:auto}
+.skip{position:absolute;left:-999px}
+.skip:focus{left:1rem;top:1rem;background:var(--blanco);padding:.5rem 1rem;z-index:20}
+
+/* Encabezado */
+.site-header{background:var(--azul);position:sticky;top:0;z-index:10;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;padding-block:.75rem}
+.brand{display:flex;align-items:center;gap:.75rem;color:var(--blanco);text-decoration:none;font-weight:700;font-size:1.1rem}
+.brand img{width:2.75rem;height:2.75rem}
+.nav-list{display:flex;gap:1.5rem;list-style:none}
+.nav-list a{color:var(--blanco);text-decoration:none;padding:.4rem .2rem;border-bottom:2px solid transparent}
+.nav-list a:hover,.nav-list a:focus{border-color:var(--dorado)}
+.menu-toggle{position:absolute;opacity:0;pointer-events:none}
+.menu-btn{display:none;color:var(--blanco);font-size:1.8rem;cursor:pointer;line-height:1}
+
+/* Hero */
+.hero{background:linear-gradient(135deg,var(--azul),var(--azul-2));color:var(--blanco);padding-block:4rem}
+.hero-inner{display:grid;grid-template-columns:1.1fr .9fr;gap:2.5rem;align-items:center}
+.hero h1{font-size:2.4rem;line-height:1.2;margin-bottom:1rem}
+.hero p{font-size:1.1rem;margin-bottom:1.5rem;color:#dbe6f5}
+.hero-img{border-radius:1rem;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+
+/* Botones */
+.btn{display:inline-block;background:var(--dorado);color:var(--azul);font-weight:700;border:none;border-radius:.5rem;padding:.8rem 1.6rem;font-size:1rem;cursor:pointer;text-decoration:none;transition:background .25s,transform .2s}
+.btn:hover,.btn:focus{background:var(--azul);color:var(--blanco);transform:translateY(-2px);outline:2px solid var(--dorado)}
+
+/* Secciones */
+.section{padding-block:4rem}
+.section.alt{background:var(--fondo)}
+.section h2{color:var(--azul);font-size:2rem;margin-bottom:.5rem}
+.lead{color:var(--gris);margin-bottom:2rem}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1.5rem}
+.card{background:var(--blanco);border-top:4px solid var(--dorado);border-radius:.75rem;padding:1.5rem;box-shadow:0 4px 14px rgba(11,46,89,.1);transition:transform .25s}
+.card:hover{transform:translateY(-4px)}
+.card h3{color:var(--azul);margin-bottom:.5rem}
+
+/* Contacto */
+.contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:2.5rem}
+address{font-style:normal}
+address p{margin-bottom:.6rem}
+.form{background:var(--blanco);padding:1.5rem;border-radius:.75rem;box-shadow:0 4px 14px rgba(11,46,89,.1)}
+.field{margin-bottom:1rem}
+.field label{display:block;font-weight:600;margin-bottom:.3rem;color:var(--azul)}
+.field input,.field textarea{width:100%;padding:.7rem;border:1px solid #b9c4d3;border-radius:.4rem;font:inherit}
+.field input:focus,.field textarea:focus{outline:2px solid var(--azul-2);border-color:var(--azul-2)}
+.note{font-size:.85rem;color:var(--gris);margin-top:.8rem}
+
+/* Pie */
+.site-footer{background:var(--azul);color:#dbe6f5;padding-block:1.5rem}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.social{display:flex;gap:1rem;list-style:none}
+.social a{color:var(--dorado);text-decoration:none}
+.social a:hover{text-decoration:underline}
+
+/* Responsivo */
+@media (max-width:48em){
+  .menu-btn{display:block}
+  nav{width:100%;display:none}
+  .menu-toggle:checked ~ nav{display:block}
+  .nav-list{flex-direction:column;gap:.25rem;padding-top:.75rem}
+  .nav-list a{display:block;padding:.6rem 0}
+  .hero{padding-block:2.5rem}
+  .hero-inner,.contact-grid{grid-template-columns:1fr}
+  .hero h1{font-size:1.8rem}
+  .footer-inner{flex-direction:column;text-align:center}
+}
